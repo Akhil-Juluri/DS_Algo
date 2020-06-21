@@ -15,5 +15,5 @@ public class Solution {
             findSubsets(A, subSets, subSet, i+1);
             subSet.remove(subSet.size() - 1);
         }
-	}
+    }
 }
