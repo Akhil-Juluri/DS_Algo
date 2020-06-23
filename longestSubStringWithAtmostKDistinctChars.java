@@ -7,7 +7,7 @@ import java.io.*;
 /* Name of the class has to be "Main" only if the class is public. */
 class Codechef
 {
-    public static int longestSubStringWithKDistinctChars(String str, int k) {
+    public static int longestSubStringWithAtmostKDistinctChars(String str, int k) {
         if (k == 0) {
             return k;
         }
@@ -26,13 +26,15 @@ class Codechef
                 }
                 start++;
             }
-            if (end - start + 1 > maxLen) {
-                maxLen = end - start + 1;
-                startIndex = start;
-                endIndex = end;
-                // stores indices of first longest substring with K distinct chars
-                // to have last longest substring with K distinct chars use end - start + 1 >= maxLen
-            }
+            //if (hs.size() == k) { // for longest SubString With exactly K Distinct Chars
+		    if (end - start + 1 > maxLen) {
+			maxLen = end - start + 1;
+			startIndex = start;
+			endIndex = end;
+			// stores indices of first longest substring with K distinct chars
+			// to have last longest substring with K distinct chars use end - start + 1 >= maxLen
+		    }
+	    //}
             //maxLen = Math.max(maxLen, end - start + 1);
         }
         //System.out.println(startIndex+" "+endIndex);
@@ -44,7 +46,7 @@ class Codechef
 		Scanner sc = new Scanner(System.in);
 		String str = sc.next();
 		int k = sc.nextInt();
-		System.out.println(longestSubStringWithKDistinctChars(str, k));
+		System.out.println(longestSubStringWithAtmostKDistinctChars(str, k));
 	}
 }
 /*
