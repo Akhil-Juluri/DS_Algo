@@ -63,14 +63,12 @@ class Codechef
                 // this means subarray sum is starting from 0 to i;
                 startIndex = 0;
                 endIndex = i;
-                size = endIndex + 1;
-                return size;
+                size = Math.min(size, endIndex + 1);
             }
             if (hs.containsKey(current_sum - sum)) {
                 startIndex = hs.get(current_sum - sum) + 1;
                 endIndex = i;
-                size = endIndex - startIndex + 1;
-                return size;
+                size = Math.min(size, endIndex - startIndex + 1);
             }
             hs.put(current_sum, i);
         }
