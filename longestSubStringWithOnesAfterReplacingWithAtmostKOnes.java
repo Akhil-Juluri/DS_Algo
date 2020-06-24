@@ -30,7 +30,7 @@ class Codechef
                 // to have last longest SubString With Ones After Replacing With Atmost K Ones use end - start + 1 >= maxLen
             }
         }
-        System.out.println(startIndex+" "+endIndex);
+        //System.out.println(startIndex+" "+endIndex);
         return maxLen;
     }
 	public static void main (String[] args) throws java.lang.Exception
