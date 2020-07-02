@@ -33,7 +33,8 @@ class Codechef
             }
             if (continuous == hm.size()) {
                 endIndex = end; // storing endIndex of any permutation of the pattern in source
-                startIndex = end - k + 1; // storing startIndex of any permutation of the pattern in source
+                startIndex = end - k + 1; // end - k + 1 == start so we can use start also // storing startIndex of any permutation of the pattern in source
+		startIndex = start;
                 //System.out.println(startIndex+"  "+endIndex);
                 return true;
             }
