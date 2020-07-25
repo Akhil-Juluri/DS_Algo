@@ -40,7 +40,7 @@ class Codechef
                 }
             }
         }
-        System.out.println(triplets);
+        System.out.println(triplets); // contains all triplets whose sum is smaller than target
         return count;
     }
     public static int getTripletsCountLargerThanTarget(int[] nums, int target) {
@@ -76,7 +76,7 @@ class Codechef
                 }
             }
         }
-        System.out.println(triplets);
+        System.out.println(triplets); // contains all triplets whose sum is larger than target
         return count;
     }
 	public static void main (String[] args) throws java.lang.Exception
