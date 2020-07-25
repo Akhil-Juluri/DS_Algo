@@ -7,16 +7,9 @@ import java.io.*;
 /* Name of the class has to be "Main" only if the class is public. */
 class Codechef
 {
-    
-    /* returns a triplet with sum close to target 
-    if some triplets triplets has same closer difference value,
-    then return sum of triplet with lesser sum
-    example input 50 40 5 15 target = 100 then 
-    50+40+5 = 95 closer to 100 with a value of 5
-    50+40+15 = 105 also same closer to 100 but with a value of -5
-    in this case return 95 as our answer */
     public static int getTripletsCountSmallerThanTarget(int[] nums, int target) {
         Arrays.sort(nums);
+        List<List<Integer>> triplets = new ArrayList<>();
         int count = 0;
         for (int i = 0; i < nums.length; i++) {
             int left = i+1, right = nums.length - 1;
@@ -34,16 +27,25 @@ class Codechef
                     here we have 3 triplets which we get as right - left = 4 - 1 = 3 
                     and we increment left because we saw that 
                     decrementing right doesn't have any effect on the value*/
+                    for (int j = left + 1; j <= right; j++) {
+                        List<Integer> triplet = new ArrayList<>();
+                        triplet.add(nums[i]);
+                        triplet.add(nums[left]);
+                        triplet.add(nums[j]);
+                        triplets.add(triplet);
+                    }
                     left++;
                 } else {
                     right--;
                 }
             }
         }
+        System.out.println(triplets);
         return count;
     }
     public static int getTripletsCountLargerThanTarget(int[] nums, int target) {
         Arrays.sort(nums);
+        List<List<Integer>> triplets = new ArrayList<>();
         int count = 0;
         for (int i = 0; i < nums.length; i++) {
             int left = i+1, right = nums.length - 1;
@@ -61,12 +63,20 @@ class Codechef
                     here we have 3 triplets which we get as right - left = 4 - 1 = 3 
                     and we decrement right because we saw that 
                     incrementing left doesn't have any effect on the value*/
+                    for (int j = right - 1; j >= left; j--) {
+                        List<Integer> triplet = new ArrayList<>();
+                        triplet.add(nums[i]);
+                        triplet.add(nums[j]);
+                        triplet.add(nums[right]);
+                        triplets.add(triplet);
+                    }
                     right--;
                 } else {
                     left++;
                 }
             }
         }
+        System.out.println(triplets);
         return count;
     }
 	public static void main (String[] args) throws java.lang.Exception
