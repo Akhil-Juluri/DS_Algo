@@ -31,7 +31,7 @@ class Codechef
                 arr[mid] = arr[last];
                 arr[last] = temp;
                 // here we decrement only last and not increment mid as we are not sure 
-                //element swapped to mid is definitely 1 it also can be 0
+                //element swapped to mid is definitely 1 it also can be 0 or 2
             }
         }
         return arr;
