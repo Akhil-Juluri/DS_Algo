@@ -31,7 +31,7 @@ class Codechef
                     count+=ones;
                 }
                 product = product / nums[first];
-                first++;
+                first++; // moving first to correct position
                 /*example input : 1 2 3 1 1 4 5, target = 6
                 when first = 0 and last = 2 product = 6, we know 1 2 3 is one subarray
                 and also 2, 3 is also a valid answer for that we have to count the preceding 1
