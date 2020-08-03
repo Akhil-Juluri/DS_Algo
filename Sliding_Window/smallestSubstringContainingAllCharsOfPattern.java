@@ -28,11 +28,19 @@ class Codechef
             char ch = source.charAt(end);
             if (hm.containsKey(ch)) {
                 hm.put(ch, hm.get(ch)-1);
-                if (hm.get(ch) == 0) {
+                if (hm.get(ch) == 0) { // here we can also use "if (hm.get(ch) >= 0) {" i.e for every character of pattern we are incrementing count
                     count++;
                 }
             }
-            while (count == hm.size()) {
+	    /* if we use if (hm.get(ch) == 0) means we are incrementing count only when all distinct chars in freqeuncy map becomes 0
+	    if we use if (hm.get(ch) >= 0) means we are incrementing count for every character of pattern in the string */
+	    	
+	    
+	    /* here if once all the chars of pattern are found in string then we will try to shrink the string from start
+	    if a character frequency is 0 i.e it has been included in the current substring and we are now not considering it 
+	    so count will be decremented by 1, since we ignored that character we have place it back for next consideration so we increment
+	    it's frequency by 1, at that time condition fails and we will search if there is any other string minimal than current result*/
+            while (count == hm.size()) { // "if (hm.get(ch) >= 0) {" is used above then this should be while (count == pattern.length()) {
                 if (min > end - start + 1) {
                     res = source.substring(start, end + 1);
                     min = end - start + 1;
