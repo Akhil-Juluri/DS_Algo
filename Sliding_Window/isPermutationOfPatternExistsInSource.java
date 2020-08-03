@@ -28,7 +28,8 @@ class Codechef
             /* if character is present in HashMap then decrement it's frequency by 1
             as and if it's frequency is 0 i.e we have matched all of it's frequency
             from the pattern so if it's frequency is 0 increment continuous i.e continuously
-            we have found a character of patternin the String*/
+            we have found a character of pattern in the String, if frequency goes
+            negative it means currently included character is a part of pattern*/
             if (hm.containsKey(ch)) {
                 hm.put(ch, hm.get(ch)-1);
                 if (hm.get(ch) == 0) {
