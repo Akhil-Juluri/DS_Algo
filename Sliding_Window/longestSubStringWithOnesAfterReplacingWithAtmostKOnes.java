@@ -13,10 +13,13 @@ class Codechef
             if (str.charAt(end) == '1') {
                 maxOnesCount++;
             }
-            // end - start + 1 - maxOnesCount > k means that in the window from start to end,
-            // even if we remove the count of max rep char and even after adding extra k chars
-            // still one extra char got added to the desired so we subtract it from start
-            if (end - start + 1 - maxOnesCount > k) {
+            /* (end - start + 1) > (maxOnesCount + k) i.e our window size will be (maxOnesCount + k) 
+	       (end - start + 1) is our current window size if current size exceeds (maxOnesCount + k)
+	       we need to decrement frequency of char at start from hashmap and increment start, 
+	       as a result even if our string contains complete  different characters while setting maxLength 
+	       it won't be a problem as end - start + 1 > maxLen won't be satisfied as current window size
+	       end - start + 1 is decreased by one and maintained to maxLength*/
+            if (end - start + 1 > k + maxOnesCount) {
                 if(str.charAt(start) == '1') {
                     maxOnesCount--;
                 }
